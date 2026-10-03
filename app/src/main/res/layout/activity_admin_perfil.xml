@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="#F4F6F9">
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#111B27"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/btnVoltar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="Voltar"
+            android:src="@android:drawable/ic_menu_revert"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:text="Perfil do Barbeiro"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btnEditarPerfil"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:contentDescription="Editar Perfil"
+            android:src="@android:drawable/ic_menu_edit"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="#FFFFFF" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imgFotoPerfilView"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/vascaino_da_navalha"
+                    android:background="#E0E0E0"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.Users.Circle" />
+
+                <TextView
+                    android:id="@+id/tvNomeExibicao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Vascaino da Navalha"
+                    android:textColor="#111B27"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E-mail"
+                android:textColor="#222222"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvEmailView"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:text="vascaino@barbearia.com"
+                android:textColor="#555555"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Telefone / Whatsapp"
+                android:textColor="#222222"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTelefoneView"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:text="(47) 98812-3456"
+                android:textColor="#555555"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data de Nascimento"
+                android:textColor="#222222"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDataNascimentoView"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:text="02 / 05 / 1999"
+                android:textColor="#555555"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Experiência"
+                android:textColor="#222222"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvExperienciaView"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:text="5 anos de experiência"
+                android:textColor="#555555"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Serviços Prestados"
+                android:textColor="#222222"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupServicosView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:chipSpacingHorizontal="8dp"
+                app:chipSpacingVertical="4dp">
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Corte de Cabelo"
+                    android:clickable="false"
+                    android:focusable="false"
+                    app:chipBackgroundColor="#E0E0E0" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Barba"
+                    android:clickable="false"
+                    android:focusable="false"
+                    app:chipBackgroundColor="#E0E0E0" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sobrancelha"
+                    android:clickable="false"
+                    android:focusable="false"
+                    app:chipBackgroundColor="#E0E0E0" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEditar"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Editar Informações"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:backgroundTint="#0E5E58"
+                app:cornerRadius="8dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

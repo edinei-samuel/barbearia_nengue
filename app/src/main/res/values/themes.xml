@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Barbearia" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!-- Define a cor da barra de status (mesmo tom da barra do topo) -->
+        <item name="android:statusBarColor">#111B27</item>
+
+        <!-- Força todas as telas a respeitarem o limite da barra de notificações/relógio -->
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="Theme.Barbearia" parent="Base.Theme.Barbearia" />
+
+    <!-- Bagulho para deixar a foto arredondada -->
+    <style name="ShapeAppearance.MaterialComponents.Users.Circle" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+
+</resources>

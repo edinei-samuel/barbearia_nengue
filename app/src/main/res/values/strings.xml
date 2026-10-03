@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Nengue APP</string>
+
+    <string name="texto_nao_tem_conta">Não tem uma conta? &lt;font color=\'#E89B00\'&gt;&lt;b&gt;Cadastre-se&lt;/b&gt;&lt;/font&gt;</string>
+    <string name="texto_ja_tem_conta">Já tem uma conta? &lt;font color=\'#E89B00\'&gt;&lt;b&gt;Faça Login&lt;/b&gt;&lt;/font&gt;</string>
+    <!-- Meu mano chat sempre salvando em tsora -->
+</resources>

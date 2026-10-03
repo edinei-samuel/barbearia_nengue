@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainAppInexistente"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A111E"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <ImageView
+        android:id="@+id/imgInexistente"
+        android:layout_width="420dp"
+        android:layout_height="420dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Aplicativo Indisponível"
+        android:src="@drawable/vasco"/>
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvTituloInexistente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/rye"
+        android:gravity="center"
+        android:text="Aplicativo Indisponível"
+        android:textAllCaps="true"
+        android:textColor="#D5E7F0"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Descrição/Mensagem -->
+    <TextView
+        android:id="@+id/tvMensagemInexistente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="Esta funcionalidade ou aplicativo ainda não está disponível ou foi descontinuado."
+        android:textColor="#8A92A6"
+        android:textSize="15sp" />
+
+    <!-- Botão de Voltar -->
+    <Button
+        android:id="@+id/btnVoltarInexistente"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="#2142B2"
+        android:text="Voltar ao Início"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
