@@ -1,6 +1,8 @@
 package com.example.barbearia;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -65,7 +67,6 @@ public class LoginActivity extends AppCompatActivity {
             btnVerSenha.setOnClickListener(v -> alternarVisibilidadeSenha(etSenha, btnVerSenha));
         }
 
-        // pega o texto de duas cor q meu super ultramega raciocinio ajudou a fazer né
         if (tvCadastreSe != null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 tvCadastreSe.setText(Html.fromHtml(getString(R.string.texto_nao_tem_conta), Html.FROM_HTML_MODE_LEGACY));
@@ -89,12 +90,14 @@ public class LoginActivity extends AppCompatActivity {
                 if (email.contains("nenguebarber")) {
                     exibirDialogBarbeiro();
                 } else {
+                    // Salva que é CLIENTE (is_admin = false)
+                    salvarSessaoUsuario(false);
+
                     Toast.makeText(this, "Login realizado como Cliente!", Toast.LENGTH_SHORT).show();
 
-                    // Caso seja o cliente vai para a tela do VASCO gigante da colina | OBS SE NÃO FUNCIONAR O SISTEMA CAIU
-                    // Fiz só o adm por enquanto
                     Intent intent = new Intent(LoginActivity.this, activity_inexistente.class);
                     startActivity(intent);
+                    finish();
                 }
 
             } else {
@@ -156,6 +159,14 @@ public class LoginActivity extends AppCompatActivity {
         return null;
     }
 
+    // Método para salvar o tipo de usuário na sessão
+    private void salvarSessaoUsuario(boolean isAdmin) {
+        SharedPreferences preferences = getSharedPreferences("SessaoUsuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("is_admin", isAdmin);
+        editor.apply();
+    }
+
     // Vai para a telinha de validar o admin
     private void exibirDialogBarbeiro() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -189,11 +200,18 @@ public class LoginActivity extends AppCompatActivity {
 
             if (barbeiroEncontrado != null) {
                 barbeiroLogado = barbeiroEncontrado;
+
+                // Se for adm salva em uma variavel para o sistema se localizar com maior facilidade
+                salvarSessaoUsuario(true);
+
                 Toast.makeText(this, "Bem-vindo, " + barbeiroLogado.getNome() + "!", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
 
-                Intent intent = new Intent(LoginActivity.this, PerfilAdm.class);
+                // Redireciona para a Home do Barbeiro
+                Intent intent = new Intent(LoginActivity.this, HomeAdm.class);
+                intent.putExtra("USER_ID", barbeiroLogado.getId());
                 startActivity(intent);
+                finish();
 
             } else {
                 Toast.makeText(this, "ID ou Senha de Barbeiro incorretos!", Toast.LENGTH_SHORT).show();

@@ -3,34 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#F4F6F9"
     android:fitsSystemWindows="true"
-    android:background="#F4F6F9">
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#111B27"
+        android:elevation="4dp"
         android:gravity="center_vertical"
-        android:paddingHorizontal="16dp"
-        android:elevation="4dp">
+        android:paddingHorizontal="16dp">
 
         <ImageView
             android:id="@+id/btnVoltar"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:contentDescription="Voltar"
-            android:src="@android:drawable/ic_menu_revert"
             android:clickable="true"
+            android:contentDescription="Voltar"
             android:focusable="true"
+            android:src="@android:drawable/ic_menu_revert"
             app:tint="#FFFFFF" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginStart="16dp"
+            android:layout_weight="1"
             android:text="Perfil do Barbeiro"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
@@ -40,38 +40,40 @@
             android:id="@+id/btnEditarPerfil"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:contentDescription="Editar Perfil"
-            android:src="@android:drawable/ic_menu_edit"
             android:clickable="true"
+            android:contentDescription="Editar Perfil"
             android:focusable="true"
+            android:src="@android:drawable/ic_menu_edit"
             app:tint="#FFFFFF" />
     </LinearLayout>
 
+    <!-- CONTEÚDO ROLÁVEL -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="16dp">
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:layout_marginBottom="20dp">
+                android:orientation="vertical">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imgFotoPerfilView"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:background="#E0E0E0"
                     android:scaleType="centerCrop"
                     android:src="@drawable/vascaino_da_navalha"
-                    android:background="#E0E0E0"
                     app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.Users.Circle" />
 
                 <TextView
@@ -168,11 +170,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="Serviços Prestados"
                 android:textColor="#222222"
-                android:textStyle="bold"
                 android:textSize="14sp"
-                android:layout_marginBottom="8dp" />
+                android:textStyle="bold" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroupServicosView"
@@ -185,25 +187,33 @@
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
                     android:text="Corte de Cabelo"
-                    android:clickable="false"
-                    android:focusable="false"
                     app:chipBackgroundColor="#E0E0E0" />
 
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Barba"
                     android:clickable="false"
                     android:focusable="false"
-                    app:chipBackgroundColor="#E0E0E0" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="Sobrancelha"
+                    app:chipBackgroundColor="#E0E0E0" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:clickable="false"
                     android:focusable="false"
+                    android:text="Pigmentação"
+                    app:chipBackgroundColor="#E0E0E0" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:text="Barba"
                     app:chipBackgroundColor="#E0E0E0" />
 
             </com.google.android.material.chip.ChipGroup>
@@ -218,6 +228,21 @@
                 app:backgroundTint="#0E5E58"
                 app:cornerRadius="8dp" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSairConta"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="12dp"
+                android:text="Sair da Conta"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:backgroundTint="#D32F2F"
+                app:cornerRadius="8dp" />
+
         </LinearLayout>
     </ScrollView>
+
+    <!-- BARRA FIXA NO RODAPÉ -->
+    <include layout="@layout/barra_navegar" />
+
 </LinearLayout>

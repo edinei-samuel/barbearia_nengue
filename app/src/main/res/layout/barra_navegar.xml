@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomNavigation"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="#0A192F"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/navInicio"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iconInicio"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/home"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Início"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navAgendamentos"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iconAgendamentos"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/agenda"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textAgendamentos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agendamentos"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- MEU PERFIL -->
+    <LinearLayout
+        android:id="@+id/navPerfil"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iconPerfil"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/user"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meu Perfil"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+</LinearLayout>

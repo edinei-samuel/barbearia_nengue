@@ -1,5 +1,6 @@
 package com.example.barbearia;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -9,10 +10,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -24,7 +24,7 @@ import java.util.Set;
 public class PerfilAdm extends AppCompatActivity {
 
     private ImageView btnVoltar, btnEditarPerfil;
-    private MaterialButton btnEditar;
+    private MaterialButton btnEditar, btnSairConta;
     private ShapeableImageView imgFotoPerfilView;
     private TextView tvNomeExibicao, tvEmailView, tvTelefoneView, tvDataNascimentoView, tvExperienciaView;
     private ChipGroup chipGroupServicosView;
@@ -36,6 +36,8 @@ public class PerfilAdm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_perfil);
 
+        BarraNavegar.setup(this, R.id.navPerfil);
+
         userId = getIntent().getStringExtra("USER_ID");
         if (userId == null) {
             userId = "vascaino@barbearia.com";
@@ -45,15 +47,10 @@ public class PerfilAdm extends AppCompatActivity {
             getWindow().setStatusBarColor(Color.parseColor("#111B27"));
         }
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, windowInsets) -> {
-            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars());
-            v.setPadding(0, insets.top, 0, 0);
-            return WindowInsetsCompat.CONSUMED;
-        });
-
         btnVoltar = findViewById(R.id.btnVoltar);
         btnEditarPerfil = findViewById(R.id.btnEditarPerfil);
         btnEditar = findViewById(R.id.btnEditar);
+        btnSairConta = findViewById(R.id.btnSairConta);
 
         imgFotoPerfilView = findViewById(R.id.imgFotoPerfilView);
         tvNomeExibicao = findViewById(R.id.tvNomeExibicao);
@@ -63,9 +60,10 @@ public class PerfilAdm extends AppCompatActivity {
         tvExperienciaView = findViewById(R.id.tvExperienciaView);
         chipGroupServicosView = findViewById(R.id.chipGroupServicosView);
 
-        btnVoltar.setOnClickListener(v -> finish());
-        btnEditarPerfil.setOnClickListener(v -> abrirTelaEdicao());
-        btnEditar.setOnClickListener(v -> abrirTelaEdicao());
+        if (btnVoltar != null) btnVoltar.setOnClickListener(v -> finish());
+        if (btnEditarPerfil != null) btnEditarPerfil.setOnClickListener(v -> abrirTelaEdicao());
+        if (btnEditar != null) btnEditar.setOnClickListener(v -> abrirTelaEdicao());
+        if (btnSairConta != null) btnSairConta.setOnClickListener(v -> confirmarSaidaSessao());
     }
 
     @Override
@@ -95,7 +93,6 @@ public class PerfilAdm extends AppCompatActivity {
         boolean jaSalvoAntes = prefs.contains(userId + "_servicos");
         Set<String> servicos = prefs.getStringSet(userId + "_servicos", null);
 
-        // se nao tiver nada salvo antes o usuario recebe esses dados
         if (!jaSalvoAntes) {
             servicos = new HashSet<>();
             servicos.add("Corte de Cabelo");
@@ -125,5 +122,30 @@ public class PerfilAdm extends AppCompatActivity {
         Intent intent = new Intent(PerfilAdm.this, PerfilAdmEditActivity.class);
         intent.putExtra("USER_ID", userId);
         startActivity(intent);
+    }
+
+    private void confirmarSaidaSessao() {
+        new AlertDialog.Builder(this)
+                .setTitle("Sair da Conta")
+                .setMessage("Deseja realmente encerrar a sessão?")
+                .setPositiveButton("Sair", (dialog, which) -> encerrarSessao())
+                .setNegativeButton("Cancelar", null)
+                .show();
+    }
+
+    private void encerrarSessao() {
+        // 1. Limpa os dados salvos da sessão do usuário
+        SharedPreferences preferences = getSharedPreferences("SessaoUsuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        editor.apply();
+
+        Toast.makeText(this, "Sessão encerrada", Toast.LENGTH_SHORT).show();
+
+        // 2. Redireciona para a tela de Login e limpa o histórico de telas
+        Intent intent = new Intent(PerfilAdm.this, LoginActivity.class); // Altere 'LoginActivity' se a sua classe de login tiver outro nome
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }

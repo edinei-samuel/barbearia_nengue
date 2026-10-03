@@ -13,7 +13,6 @@ public class activity_inexistente extends AppCompatActivity {
 
         Button btnVoltarInexistente = findViewById(R.id.btnVoltarInexistente);
         if (btnVoltarInexistente != null) {
-            btnVoltarInexistente.setOnClickListener(v -> finish());
         }
     }
 }
