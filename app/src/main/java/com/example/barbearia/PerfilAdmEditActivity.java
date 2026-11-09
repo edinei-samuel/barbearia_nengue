@@ -75,7 +75,6 @@ public class PerfilAdmEditActivity extends AppCompatActivity {
         etTelefone = findViewById(R.id.etTelefone);
         etDataNascimento = findViewById(R.id.etDataNascimento);
         etExperiencia = findViewById(R.id.etExperiencia);
-        chipGroupServicos = findViewById(R.id.chipGroupServicos);
         btnSalvar = findViewById(R.id.btnSalvar);
         btnSair = findViewById(R.id.btnSair);
 

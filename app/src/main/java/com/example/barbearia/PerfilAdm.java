@@ -57,8 +57,7 @@ public class PerfilAdm extends AppCompatActivity {
         tvEmailView = findViewById(R.id.tvEmailView);
         tvTelefoneView = findViewById(R.id.tvTelefoneView);
         tvDataNascimentoView = findViewById(R.id.tvDataNascimentoView);
-        tvExperienciaView = findViewById(R.id.tvExperienciaView);
-        chipGroupServicosView = findViewById(R.id.chipGroupServicosView);
+        tvExperienciaView = findViewById(R.id.tvExperienciaView);;
 
         if (btnVoltar != null) btnVoltar.setOnClickListener(v -> finish());
         if (btnEditarPerfil != null) btnEditarPerfil.setOnClickListener(v -> abrirTelaEdicao());

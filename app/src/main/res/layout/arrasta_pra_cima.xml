@@ -27,7 +27,6 @@
         android:textStyle="bold"
         android:layout_marginBottom="16dp" />
 
-    <!-- Abas de Turno (Manhã, Tarde, Noite) -->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayoutTurnos"
         android:layout_width="match_parent"

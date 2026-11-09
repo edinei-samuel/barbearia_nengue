@@ -47,7 +47,7 @@
             app:tint="#FFFFFF" />
     </LinearLayout>
 
-    <!-- CONTEÚDO ROLÁVEL -->
+    <!-- CONTEÚDO ROLÁVEL (Apenas as informações do perfil rolam) -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -150,7 +150,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Experiência"
+                android:text="Resumo"
                 android:textColor="#222222"
                 android:textStyle="bold" />
 
@@ -163,86 +163,45 @@
                 android:background="#FFFFFF"
                 android:gravity="center_vertical"
                 android:paddingHorizontal="12dp"
-                android:text="5 anos de experiência"
+                android:text="Breve resumo sobre o barbeiro..."
                 android:textColor="#555555"
                 android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Serviços Prestados"
-                android:textColor="#222222"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroupServicosView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                app:chipSpacingHorizontal="8dp"
-                app:chipSpacingVertical="4dp">
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:text="Corte de Cabelo"
-                    app:chipBackgroundColor="#E0E0E0" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:text="Sobrancelha"
-                    app:chipBackgroundColor="#E0E0E0" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:text="Pigmentação"
-                    app:chipBackgroundColor="#E0E0E0" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:text="Barba"
-                    app:chipBackgroundColor="#E0E0E0" />
-
-            </com.google.android.material.chip.ChipGroup>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnEditar"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:text="Editar Informações"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                app:backgroundTint="#0E5E58"
-                app:cornerRadius="8dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSairConta"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="12dp"
-                android:text="Sair da Conta"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                app:backgroundTint="#D32F2F"
-                app:cornerRadius="8dp" />
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- BARRA FIXA NO RODAPÉ -->
+    <!-- ÁREA FIXA NO RODAPÉ (Botões Editar e Sair da Conta) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F4F6F9"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Editar Informações"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:backgroundTint="#0E5E58"
+            app:cornerRadius="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSairConta"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:text="Sair da Conta"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:backgroundTint="#D32F2F"
+            app:cornerRadius="8dp" />
+    </LinearLayout>
+
     <include layout="@layout/barra_navegar" />
 
 </LinearLayout>

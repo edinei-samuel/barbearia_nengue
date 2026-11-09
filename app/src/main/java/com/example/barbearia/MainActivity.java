@@ -11,10 +11,7 @@ import android.os.Looper;
 import android.view.View;
 import android.view.Window;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 if (isAdmin) {
                     startActivity(new Intent(MainActivity.this, HomeAdm.class));
                 } else {
-                    startActivity(new Intent(MainActivity.this, activity_inexistente.class));
+                    // CORRIGIDO: Agora direciona para a tela correta do cliente em vez da página inexistente
+                    startActivity(new Intent(MainActivity.this, HomeUsuario.class));
                 }
             } else {
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));

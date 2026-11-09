@@ -36,7 +36,7 @@ public class BarraNavegar {
         // Ação: Início
         navInicio.setOnClickListener(v -> {
             if (idItemAtual != R.id.navInicio) {
-                Class<?> destino = (isAdmin || isBarber) ? HomeAdm.class : HomeAdm.class;
+                Class<?> destino = (isAdmin || isBarber) ? HomeAdm.class : HomeUsuario.class;
                 abrirTela(activity, destino);
             }
         });
@@ -44,7 +44,7 @@ public class BarraNavegar {
         // Ação: Agendamentos
         navAgendamentos.setOnClickListener(v -> {
             if (idItemAtual != R.id.navAgendamentos) {
-                Class<?> destino = (isAdmin || isBarber) ? AgendaBarber.class : activity_inexistente.class;
+                Class<?> destino = (isAdmin || isBarber) ? AgendaBarber.class : NovoAgendamentoActivity.class;
                 abrirTela(activity, destino);
             }
         });
@@ -52,7 +52,7 @@ public class BarraNavegar {
         // Ação: Perfil
         navPerfil.setOnClickListener(v -> {
             if (idItemAtual != R.id.navPerfil) {
-                Class<?> destino = (isAdmin || isBarber) ? PerfilAdm.class : activity_inexistente.class;
+                Class<?> destino = (isAdmin || isBarber) ? PerfilAdm.class : PerfilUsuario.class;
                 abrirTela(activity, destino);
             }
         });
@@ -60,9 +60,16 @@ public class BarraNavegar {
 
     private static void abrirTela(Activity activity, Class<?> telaDestino) {
         if (telaDestino == null) return;
+
+        if (telaDestino.getName().contains("activity_inexistente")) {
+            return;
+        }
+
         Intent intent = new Intent(activity, telaDestino);
+        // Adiciona flags para limpar o histórico e evitar sobreposição de instâncias
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
         activity.startActivity(intent);
-        activity.finish();
     }
 
     private static void aplicarCorItem(Activity activity, int idIcon, int idText, boolean selecionado, int corAtiva, int corInativa) {

@@ -168,7 +168,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Experiência"
+                android:text="Resumo"
                 android:textColor="#222222"
                 android:textStyle="bold" />
 
@@ -179,62 +179,8 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="16dp"
                 android:background="#FFFFFF"
-                android:hint="Anos de experiência"
+                android:hint="Breve resumo"
                 android:paddingHorizontal="12dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Serviços Prestados"
-                android:textColor="#222222"
-                android:textStyle="bold"
-                android:textSize="14sp"
-                android:layout_marginBottom="8dp" />
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroupServicos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                app:chipSpacingHorizontal="8dp"
-                app:chipSpacingVertical="4dp">
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipCorte"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Corte de Cabelo" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipBarba"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Barba" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipSobrancelha"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sobrancelha" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipPigmentacao"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pigmentação" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipSelagem"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Selagem / Química" />
-
-            </com.google.android.material.chip.ChipGroup>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSalvar"

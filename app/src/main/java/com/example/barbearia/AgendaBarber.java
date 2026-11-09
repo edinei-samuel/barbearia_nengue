@@ -1,13 +1,18 @@
 package com.example.barbearia;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.button.MaterialButton;
 
 import java.time.DayOfWeek;
@@ -100,6 +105,23 @@ public class AgendaBarber extends AppCompatActivity {
                     return;
                 }
 
+                // VALIDAÇÃO DE CLIENTES AGENDADOS
+                if (!diaSelecionado.ehFolga) {
+                    // ATENÇÃO: Aqui simulamos que o dia 10 está ocupado para você testar o aviso.
+                    // Quando implementar o banco/SharedPreferences real, substitua esta linha pela verificação do seu sistema.
+                    boolean temClientes = diaSelecionado.dia.equals("10") || verificarSeTemClientesAgendados(diaSelecionado.dataCompleta);
+
+                    if (temClientes) {
+                        new AlertDialog.Builder(this)
+                                .setTitle("Atenção: Clientes Agendados")
+                                .setMessage("Existem clientes agendados para o dia " + diaSelecionado.dataCompleta + ". Entre em contato com o cliente para remarcar antes de lançar a folga.")
+                                .setPositiveButton("OK", null)
+                                .show();
+                        return; // Interrompe e impede de marcar a folga
+                    }
+                }
+
+                // Alterna o status da folga caso esteja livre
                 diaSelecionado.ehFolga = !diaSelecionado.ehFolga;
 
                 if (diaSelecionado.ehFolga) {
@@ -118,13 +140,24 @@ public class AgendaBarber extends AppCompatActivity {
         }
     }
 
+    private boolean verificarSeTemClientesAgendados(String dataCompleta) {
+        // Reservado para quando você implementar o SharedPreferences ou Banco de Dados real
+        SharedPreferences prefs = getSharedPreferences("AgendamentosPrefs", Context.MODE_PRIVATE);
+        for (String key : prefs.getAll().keySet()) {
+            if (key != null && key.contains(dataCompleta)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void carregarFeriados(int ano) {
         feriados.clear();
         String prefixo = ano + "-";
 
-        feriados.add(prefixo + "04-27");
         feriados.add(prefixo + "01-01");
         feriados.add(prefixo + "04-21");
+        feriados.add(prefixo + "04-27");
         feriados.add(prefixo + "05-01");
         feriados.add(prefixo + "09-01");
         feriados.add(prefixo + "09-07");
@@ -147,7 +180,7 @@ public class AgendaBarber extends AppCompatActivity {
 
             adapter = new CalendarAdapter(dias, (diaItem, position) -> {
                 if (!diaItem.ehMesAtual || diaItem.ehPassado) {
-                    Toast.makeText(this, "Máquina do tempo ainda não foi criada  \uD83D\uDC4D  \uD83D\uDC4D", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Máquina do tempo ainda não foi criada 👨‍💻", Toast.LENGTH_SHORT).show();
                     return;
                 }
 

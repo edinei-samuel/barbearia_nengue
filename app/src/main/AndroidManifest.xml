@@ -54,14 +54,29 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
-        <activity
-            android:name=".RelatorioAdm"
-            android:exported="false" />
-
         <!-- Sistema -->
         <activity
             android:name=".activity_inexistente"
             android:exported="false" />
+
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!--                                  Clientes -->
+
+        <activity
+            android:name=".HomeUsuario"
+            android:exported="false"/>
+
+        <activity android:name=".NovoAgendamentoActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".PerfilUsuario"
+            android:exported="false" />
+
+        <activity
+            android:name=".PerfilUsuarioEdit"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
 
     </application>
 

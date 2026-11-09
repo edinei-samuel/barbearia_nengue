@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Meus Agendamentos"
+                android:text="Agendamentos"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -193,7 +193,6 @@
             </LinearLayout>
         </ScrollView>
 
-        <!-- BARRA FIXA NO RODAPÉ -->
         <include layout="@layout/barra_navegar" />
 
     </LinearLayout>

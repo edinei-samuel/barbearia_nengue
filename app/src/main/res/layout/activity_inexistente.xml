@@ -9,6 +9,7 @@
     android:orientation="vertical"
     android:padding="32dp">
 
+    <!-- Se pá q na anova atualizações teremos de alterar o time... Infelizmente 😒😤 -->
     <ImageView
         android:id="@+id/imgInexistente"
         android:layout_width="420dp"
@@ -17,7 +18,6 @@
         android:contentDescription="Aplicativo Indisponível"
         android:src="@drawable/vasco"/>
 
-    <!-- Título -->
     <TextView
         android:id="@+id/tvTituloInexistente"
         android:layout_width="match_parent"
@@ -31,7 +31,6 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <!-- Descrição/Mensagem -->
     <TextView
         android:id="@+id/tvMensagemInexistente"
         android:layout_width="match_parent"
@@ -43,7 +42,6 @@
         android:textColor="#8A92A6"
         android:textSize="15sp" />
 
-    <!-- Botão de Voltar -->
     <Button
         android:id="@+id/btnVoltarInexistente"
         android:layout_width="match_parent"

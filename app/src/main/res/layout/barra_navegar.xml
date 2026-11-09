@@ -60,7 +60,6 @@
             android:textSize="11sp" />
     </LinearLayout>
 
-    <!-- MEU PERFIL -->
     <LinearLayout
         android:id="@+id/navPerfil"
         android:layout_width="0dp"
